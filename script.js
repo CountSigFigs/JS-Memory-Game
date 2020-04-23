@@ -52,6 +52,8 @@ function unflipCards() {
 }
 
 function resetBoard() {
+
+   //same as saying hasFlippedCard=false, lockBoard=false
   [hasFlippedCard, lockBoard] = [false, false];
   [firstCard, secondCard] = [null, null];
 }
@@ -66,7 +68,7 @@ function resetBoard() {
 })()
 
 function resetGame(){
-   
+
    cards.forEach(card => {
       let randomPos = Math.floor(Math.random() * 12);
       card.style.order= randomPos
