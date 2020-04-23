@@ -5,6 +5,7 @@ let lockBoard = false;
 let firstCard, secondCard;
 
 function flipCard() {
+
   if (lockBoard) return;
   if (this === firstCard) return;
 
@@ -31,6 +32,7 @@ function checkForMatch() {
 }
 
 function disableCards() {
+
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
 
@@ -53,4 +55,14 @@ function resetBoard() {
   [firstCard, secondCard] = [null, null];
 }
 
+
+//imediately invoked function due to parenthesis around function and at end ()
+(function shuffle(){
+   cards.forEach(card => {
+      let randomPos = Math.floor(Math.random() * 12);
+      card.style.order= randomPos
+   })
+})()
+
 cards.forEach(card => card.addEventListener('click', flipCard));
+
