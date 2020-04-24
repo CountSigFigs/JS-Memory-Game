@@ -69,12 +69,16 @@ function resetBoard() {
 
 function resetGame(){
 
-   cards.forEach(card => {
+   
+  cards.forEach(card =>card.classList.remove('flip'))
+  cards.forEach(card => card.addEventListener('click', flipCard));
+  setTimeout(() => {
+    cards.forEach(card => {
       let randomPos = Math.floor(Math.random() * 12);
       card.style.order= randomPos
    })
-  cards.forEach(card =>card.classList.remove('flip'))
-  cards.forEach(card => card.addEventListener('click', flipCard));
+  }, 1500);
+  
   hasFlippedCard=false;
   lockedBoard=false;
   firstCard;
